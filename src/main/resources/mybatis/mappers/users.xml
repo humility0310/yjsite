@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="users">
+	<insert id="join" parameterType="usersvo">
+		<![CDATA[
+		INSERT INTO USERS VALUES(
+		users_seq.NEXTVAL, 
+		#{id}, #{password}, 
+		#{usersImage}
+		)
+		]]>
+	</insert>
+
+	<select id="checkId" parameterType="string" resultType="usersvo">
+	<![CDATA[
+		select no, id 
+		FROM USERS 
+		WHERE id = #{id} 
+	]]>
+	</select>
+	<select id="login" parameterType="usersvo" resultType="usersvo">
+	<![CDATA[
+		select no, id, password, usersimage
+		  FROM USERS 
+		 where ID=#{id} AND PASSWORD=#{password}
+	]]>
+	</select>
+	
+	<update id="modify" parameterType="usersvo">
+	<![CDATA[
+		UPDATE USERS 
+		   SET PASSWORD=#{password} , USERSIMAGE=#{usersImage} 
+		 WHERE NO=#{no}
+	]]>
+	</update>
+	
+	
+	<select id="getUserInfo" parameterType="string" resultType="usersvo">
+	<![CDATA[
+		select *
+		  FROM USERS 
+		 where ID=#{id}
+	]]>
+	</select>
+	<select id="getList" resultType="usersvo">
+	<![CDATA[
+	SELECT * 
+	  FROM USERS
+  	]]>
+	</select>
+</mapper>
