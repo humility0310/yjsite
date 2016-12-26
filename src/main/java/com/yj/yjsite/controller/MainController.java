@@ -20,23 +20,20 @@ public class MainController {
 	@Autowired
 	UsersService usersService;
 
-	/*
-	 * @RequestMapping("") 
-	 * public String main(){ 
-	 * 	return "main/main"; 
-	 * }
-	 */
+	@RequestMapping("")
+	public String main() {
+		return "main/main";
+	}
+
 	@ResponseBody
 	@RequestMapping("/hello")
 	public String hello() {
 		return "테스트 입니다.";
 	}
 
-	@RequestMapping("")
-	public String test() {
-		return "test/test";
-	}
-
+	/*
+	 * @RequestMapping("") public String test() { return "test/test"; }
+	 */
 	// ---------------JSON URL로 확인-------------------------
 	@ResponseBody
 	@RequestMapping(value = "/test3", method = RequestMethod.GET)
@@ -60,10 +57,11 @@ public class MainController {
 		System.out.println(vo);
 		return JSONResult.success(1);
 	}
-	//------------------JSON List----------------------------
+
+	// ------------------JSON List----------------------------
 	@ResponseBody
-	@RequestMapping(value="testlist", method = RequestMethod.POST)
-	public JSONResult getList(){
+	@RequestMapping(value = "testlist", method = RequestMethod.POST)
+	public JSONResult getList() {
 		List<UsersVo> list = usersService.getList();
 		return JSONResult.success(list);
 	}
