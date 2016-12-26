@@ -176,9 +176,9 @@
 				<artifactId>tomcat-maven-plugin</artifactId>
 				<configuration>
 					<url>http://192.168.1.30:8090/manager/text</url>
-					<path>/mysite3</path>
-					<username>tomcat</username>
-					<password>tomcat</password>
+					<path>/yjsite</path>
+					<username>5f</username>
+					<password>5f</password>
 				</configuration>
 			</plugin>
 			
