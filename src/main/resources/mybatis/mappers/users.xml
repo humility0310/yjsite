@@ -20,9 +20,7 @@
 	</select>
 	<select id="login" parameterType="usersvo" resultType="usersvo">
 	<![CDATA[
-		select no, id, password, usersimage
-		  FROM USERS 
-		 where ID=#{id} AND PASSWORD=#{password}
+		SELECT * FROM users WHERE users.id=#{id} AND users.password=#{password};
 	]]>
 	</select>
 	

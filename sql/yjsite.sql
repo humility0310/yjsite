@@ -1,5 +1,7 @@
 SELECT *
   FROM USERS u;
+  
+SELECT * FROM users WHERE users.id='11' AND users.password="11";
 
 COMMIT;
 
