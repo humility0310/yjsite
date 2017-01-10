@@ -28,15 +28,14 @@
 	</context:component-scan>
 
 
-	<!-- oracle datasource -->
-	<bean id="dataSource" class="oracle.jdbc.pool.OracleDataSource"
-		destroy-method="close">
-		<property name="URL" value="jdbc:oracle:thin:@localhost:1521:xe" />
-		<property name="user" value="yjsite" />
-		<property name="password" value="yjsite" />
-		<property name="connectionCachingEnabled" value="true" />
-		<qualifier value="main-db" />
+	<!-- Connection Pool DataSource-->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://163.44.171.41:3306/modeal" />
+		<property name="username" value="root" />
+		<property name="password" value="root" />
 	</bean>
+
 
 	<!-- MyBatis SqlSessionFactoryBean -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

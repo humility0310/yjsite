@@ -20,14 +20,7 @@
 					</list>
 				</property>
 			</bean>
-			<bean
-				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-				<property name="supportedMediaTypes">
-					<list>
-						<value>application/json; charset=UTF-8</value>
-					</list>
-				</property>
-			</bean>
+			
 		</mvc:message-converters>
 		<!-- 어노테이션 생성 설정 삭제 -->
 
@@ -43,31 +36,31 @@
 
 
 	<!-- Interceptors -->
-		<mvc:interceptors>
-			<mvc:interceptor>
-				<mvc:mapping path="/loginresult" />
-				<bean class="com.yj.security.AuthLoginInterceptor" />
-			</mvc:interceptor>
-			
-			<mvc:interceptor>
-				<mvc:mapping path="/logout" />
-				<bean class="com.yj.security.AuthLogoutInterceptor" />
-			</mvc:interceptor>
-			
-	
-			<mvc:interceptor>
-				<mvc:mapping path="/**" />
-				<mvc:exclude-mapping path="/loginresult" />
-				<mvc:exclude-mapping path="/logout" />
-				<mvc:exclude-mapping path="/assets/**" />
-				<bean class="com.yj.security.AuthInterceptor" />
-			</mvc:interceptor>
-	
-		</mvc:interceptors>
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/loginresult" />
+			<bean class="com.yj.security.AuthLoginInterceptor" />
+		</mvc:interceptor>
+
+		<mvc:interceptor>
+			<mvc:mapping path="/logout" />
+			<bean class="com.yj.security.AuthLogoutInterceptor" />
+		</mvc:interceptor>
 
 
-<!-- the mvc resources tag does the magic -->
- 	<mvc:resources mapping="/gallery/assets/**" location="file:/upload/" />
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<mvc:exclude-mapping path="/loginresult" />
+			<mvc:exclude-mapping path="/logout" />
+			<mvc:exclude-mapping path="/assets/**" />
+			<bean class="com.yj.security.AuthInterceptor" />
+		</mvc:interceptor>
+
+	</mvc:interceptors>
+
+
+	<!-- the mvc resources tag does the magic -->
+	<mvc:resources mapping="/gallery/assets/**" location="file:/upload/" />
 
 
 	<!-- annotation 설정을 하겠다. -->
@@ -97,7 +90,8 @@
 	</bean>
 
 	<!-- 6. MessageSource -->
-	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="defaultEncoding" value="utf-8" />
 		<property name="basenames">
 			<list>
