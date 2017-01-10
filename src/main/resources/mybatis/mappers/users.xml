@@ -9,7 +9,7 @@ INSERT INTO users (id, password, usersimage) VALUES(#{id}, #{password}, #{usersI
 
 	<select id="checkId" parameterType="string" resultType="usersvo">
 	<![CDATA[
-		select users.no, users.id 
+		select no, id 
 		FROM users 
 		WHERE users.id = #{id} 
 	]]>

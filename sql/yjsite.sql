@@ -6,4 +6,6 @@
 		commit;
 		
 		
-		
+INSERT INTO users (id, password, usersimage) VALUES('22', '22', '22');
+commit;
+SELECT * FROM users;
