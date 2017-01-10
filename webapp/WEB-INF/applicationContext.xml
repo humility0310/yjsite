@@ -27,16 +27,13 @@
 			expression="org.springframework.stereotype.Component" />
 	</context:component-scan>
 
-
-	<!-- Connection Pool DataSource-->
-	<bean id="dataSource" 
-	class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="url" value="jdbc:log4jdbc:mysql://163.44.171.41:3306/yjsite" />
-		<property name="username" value="root" />
-		<property name="password" value="root" />
+	<!-- mysql -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+	        <property name="url" value="jdbc:mysql://localhost:3306/yjsite" />
+	        <property name="username" value="root" />
+	        <property name="password" value="root" />
 	</bean>
-
-
 	<!-- MyBatis SqlSessionFactoryBean -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
