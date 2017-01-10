@@ -29,9 +29,9 @@
 
 
 	<!-- Connection Pool DataSource-->
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://163.44.171.41:3306/yjsite" />
+	<bean id="dataSource" 
+	class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="url" value="jdbc:log4jdbc:mysql://163.44.171.41:3306/yjsite" />
 		<property name="username" value="root" />
 		<property name="password" value="root" />
 	</bean>
