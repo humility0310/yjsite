@@ -81,8 +81,8 @@ public class UsersController {
 
 			return "/users/join";
 		}
-		usersVo.setUsersImage(usersService.restore(file));
 		usersService.join(usersVo);
+		usersVo.setUsersImage(usersService.restore(file));
 		return "redirect:/joinsuccess";
 	}
 }
