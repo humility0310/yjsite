@@ -3,6 +3,8 @@ SELECT *
 
 COMMIT;
 
+SELECT * FROM users u;
+INSERT INTO users (id, password, usersimage) VALUES('11', '11', '11');
 
 CREATE SEQUENCE users_seq START WITH 1 INCREMENT BY 1 MAXVALUE 9999999999;
 
