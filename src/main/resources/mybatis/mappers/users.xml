@@ -3,19 +3,15 @@
 <mapper namespace="users">
 	<insert id="join" parameterType="usersvo">
 		<![CDATA[
-		INSERT INTO USERS VALUES(
-		users_seq.NEXTVAL, 
-		#{id}, #{password}, 
-		#{usersImage}
-		)
+INSERT INTO users (id, password, usersimage) VALUES(#{id}, #{password}, #{usersImage});
 		]]>
 	</insert>
 
 	<select id="checkId" parameterType="string" resultType="usersvo">
 	<![CDATA[
-		select no, id 
-		FROM USERS 
-		WHERE id = #{id} 
+		select users.no, users.id 
+		FROM users 
+		WHERE users.id = #{id} 
 	]]>
 	</select>
 	<select id="login" parameterType="usersvo" resultType="usersvo">
@@ -26,9 +22,7 @@
 	
 	<update id="modify" parameterType="usersvo">
 	<![CDATA[
-		UPDATE USERS 
-		   SET PASSWORD=#{password} , USERSIMAGE=#{usersImage} 
-		 WHERE NO=#{no}
+		UPDATE users SET password=#{password},usersimage=#{usersImage}  WHERE no=#{no}
 	]]>
 	</update>
 	
@@ -36,14 +30,14 @@
 	<select id="getUserInfo" parameterType="string" resultType="usersvo">
 	<![CDATA[
 		select *
-		  FROM USERS 
-		 where ID=#{id}
+		  FROM users 
+		 where id=#{id}
 	]]>
 	</select>
 	<select id="getList" resultType="usersvo">
 	<![CDATA[
 	SELECT * 
-	  FROM USERS
+	  FROM users
   	]]>
 	</select>
 </mapper>

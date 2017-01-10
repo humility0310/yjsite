@@ -5,6 +5,10 @@ SELECT * FROM users WHERE users.id='11' AND users.password="11";
 
 COMMIT;
 
+
+
+
+
 SELECT * FROM users u;
 INSERT INTO users (id, password, usersimage) VALUES('11', '11', '11');
 
