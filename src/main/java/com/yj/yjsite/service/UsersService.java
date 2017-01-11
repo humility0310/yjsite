@@ -74,10 +74,15 @@ public class UsersService {
 	}
 
 	private void writeFile(MultipartFile multipartFile, String saveFileName) throws IOException {
+		System.err.println("into write file");
 		byte[] fileData = multipartFile.getBytes();
+		System.err.println("1111111");
 		FileOutputStream fos = new FileOutputStream(SAVE_PATH + "/" + saveFileName);
+		System.err.println("222222");
 		fos.write(fileData);
+		System.err.println("3333333333");
 		fos.close();
+		System.err.println("444444444444");
 	}
 
 	private String generateSaveFileName(String extName) {
