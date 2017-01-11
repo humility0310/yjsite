@@ -60,7 +60,8 @@
 
 
 	<!-- the mvc resources tag does the magic -->
-	<mvc:resources mapping="/gallery/assets/**" location="file:/upload/" />
+	<!-- mvc:resources mapping="/gallery/assets/**" location="file:/upload/" / -->
+	<mvc:resources mapping="/gallery/assets/**" location="/usr/upload/" />
 
 
 	<!-- annotation 설정을 하겠다. -->

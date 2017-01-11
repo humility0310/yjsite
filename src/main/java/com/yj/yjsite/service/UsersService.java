@@ -15,7 +15,7 @@ import com.yj.yjsite.vo.UsersVo;
 @Service
 public class UsersService {
 
-	private static final String SAVE_PATH = "/upload";
+	private static final String SAVE_PATH = "/usr/upload";
 	// private static final String URL = "/gallery/assets/";
 
 	@Autowired
