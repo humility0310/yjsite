@@ -60,7 +60,6 @@ public class UsersService {
 			writeFile(multipartFile, saveFileName);
 
 			// url = URL + saveFileName;
-			System.out.println("file write commit");
 			
 		} catch (IOException ex) {
 			// throw new UploadFileException( "write file" );
@@ -75,13 +74,9 @@ public class UsersService {
 	private void writeFile(MultipartFile multipartFile, String saveFileName) throws IOException {
 		System.out.println("into write file");
 		byte[] fileData = multipartFile.getBytes();
-		System.out.println("1111111");
 		FileOutputStream fos = new FileOutputStream(SAVE_PATH + "/" + saveFileName);
-		System.out.println("222222");
 		fos.write(fileData);
-		System.out.println("3333333333");
 		fos.close();
-		System.out.println("444444444444");
 	}
 
 	private String generateSaveFileName(String extName) {
