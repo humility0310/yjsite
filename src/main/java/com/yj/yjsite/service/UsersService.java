@@ -61,7 +61,7 @@ public class UsersService {
 			writeFile(multipartFile, saveFileName);
 
 			// url = URL + saveFileName;
-
+			System.out.println("file write commit");
 			
 		} catch (IOException ex) {
 			// throw new UploadFileException( "write file" );
