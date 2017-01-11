@@ -53,10 +53,10 @@ public class UsersService {
 			saveFileName = generateSaveFileName(extName);
 			Long fileSize = multipartFile.getSize();
 
-			System.out.println("#######" + originalFileName);
-			System.out.println("#######" + extName);
-			System.out.println("#######" + saveFileName);
-			System.out.println("#######" + fileSize);
+			System.out.println("###originalFileName####" + originalFileName);
+			System.out.println("###extName####" + extName);
+			System.out.println("###saveFileName####" + saveFileName);
+			System.out.println("###fileSize####" + fileSize);
 
 			writeFile(multipartFile, saveFileName);
 
@@ -74,15 +74,15 @@ public class UsersService {
 	}
 
 	private void writeFile(MultipartFile multipartFile, String saveFileName) throws IOException {
-		System.err.println("into write file");
+		System.out.println("into write file");
 		byte[] fileData = multipartFile.getBytes();
-		System.err.println("1111111");
+		System.out.println("1111111");
 		FileOutputStream fos = new FileOutputStream(SAVE_PATH + "/" + saveFileName);
-		System.err.println("222222");
+		System.out.println("222222");
 		fos.write(fileData);
-		System.err.println("3333333333");
+		System.out.println("3333333333");
 		fos.close();
-		System.err.println("444444444444");
+		System.out.println("444444444444");
 	}
 
 	private String generateSaveFileName(String extName) {
