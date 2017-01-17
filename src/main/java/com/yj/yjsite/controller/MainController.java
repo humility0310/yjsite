@@ -19,11 +19,11 @@ public class MainController {
 
 	@Autowired
 	UsersService usersService;
-
+/*
 	@RequestMapping("")
 	public String main() {
 		return "main/main";
-	}
+	}*/
 
 	@ResponseBody
 	@RequestMapping("/hello")
@@ -31,9 +31,11 @@ public class MainController {
 		return "테스트 입니다.";
 	}
 
-	/*
-	 * @RequestMapping("") public String test() { return "test/test"; }
-	 */
+	@RequestMapping("")
+	public String test() {
+		return "test/test";
+	}
+
 	// ---------------JSON URL로 확인-------------------------
 	@ResponseBody
 	@RequestMapping(value = "/test3", method = RequestMethod.GET)
